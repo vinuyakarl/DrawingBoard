@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    border: 2px solid green;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+#drawing-board {
+    display: flex;
+    border: 2px solid yellow;
+    width: 604px;
+    height: 600px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.grid {
+    flex: 1;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
