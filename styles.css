@@ -1,4 +1,4 @@
-.container {
+#drawing-container {
     display: flex;
     border: 2px solid green;
     justify-content: center;
@@ -8,16 +8,12 @@
 
 
 #drawing-board {
-    display: flex;
+    display: grid;
     border: 2px solid yellow;
-    width: 604px;
-    height: 600px;
-    flex-wrap: wrap;
-    box-sizing: border-box;
+    width: 660px;
+    height: 660px;
 }
 
 .grid {
-    flex: 1;
     border: 1px solid black;
-    box-sizing: border-box;
 }
