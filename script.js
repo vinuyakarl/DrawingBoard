@@ -6,7 +6,6 @@ function createSquareDivs() {
     let div = document.createElement('div');
     div.className = 'grid';
     let gridContainer = document.querySelector('#drawing-board');
-
     gridContainer.appendChild(div);
 }
 
@@ -17,11 +16,14 @@ function completeGrid(rows) {
         Parameter: rows = amount of rows and columns
     */
 
-   let gridContainer = document.querySelector('#drawing-board');
+    let gridContainer = document.querySelector('#drawing-board');
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
     gridContainer.style.gridTemplateColumns = `repeat(${rows}, 1fr)`;
     for (let i = 0; i < rows * rows; i++) {
         createSquareDivs();
-    }
+    };
 }
 
 function paintGrid(color) {
@@ -56,9 +58,71 @@ function paintGrid(color) {
     });
 }
 
+function buttonFunctions () {
+    let colorMenu = document.getElementById('color-menu');
+    let changeColorButton = document.getElementById('change-color');
+    let eraserButton = document.getElementById('eraser');
+    let clearButton = document.getElementById('clear');
+    let gridLinesButton = document.getElementById('grid-lines');
+    let gridSizeButton = document.getElementById('change-size');
+    let gridSizeMenu = document.getElementById('size-scale');
+    let toggleEraser = false;
+    paintGrid(colorMenu.value);
+
+    // Allows user to change color
+    changeColorButton.addEventListener('click', () => {
+        if (!toggleEraser) {
+            colorMenu.click();
+            document.addEventListener('mousemove', () => {
+                paintGrid(colorMenu.value);
+                });
+        };
+    });
 
 
-completeGrid(16);
-paintGrid('blue');
+    // Clears the drawing board
+    clearButton.addEventListener('click', () => {
+        let grid = document.querySelectorAll('.grid');
+        for (box of grid) {
+            box.style.backgroundColor = 'white';
+        }
+    });
+
+    // Makes the 'brush' into an eraser
+    eraserButton.addEventListener('click', () => {
+        let prev = colorMenu.value;
+        toggleEraser = !toggleEraser;
+        eraserButton.style.backgroundColor = toggleEraser ? 'grey' : 'black';
+        colorValue = toggleEraser ? 'white' : prev;
+        paintGrid(colorValue);
+    });
 
 
+    // Toggles grid lines
+    gridLinesButton.addEventListener('click', () => {
+        let grid = document.querySelectorAll('.grid');
+        let toggleGridLines = gridLinesButton.style.backgroundColor === 'grey';
+        for (box of grid) {
+            box.style.border = toggleGridLines ? '1px solid black' : 'none';
+        }
+        gridLinesButton.style.backgroundColor = toggleGridLines ? 'black' : 'grey';
+    });
+
+    // Changes board size
+    gridSizeMenu.addEventListener('mousemove', () => {
+        let test = document.getElementById('size-value');
+        test.innerText = gridSizeMenu.value + " x " + gridSizeMenu.value;
+    })
+
+    gridSizeMenu.addEventListener('change', () => {
+        completeGrid(gridSizeMenu.value);
+    })
+}
+
+
+function main() {
+    completeGrid(16);
+    buttonFunctions();
+}
+
+main();

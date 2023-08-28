@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drawing Board</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Exo&family=Nunito+Sans:ital,wght@1,200&display=swap">
 </head>
 <body>
-    <h1>Drawing Board</h1>
+    <h1 id="title">PIXEL DRAWING BOARD</h1>
 
     
     <div id="drawing-container">
+        <div id="menu">
+            <button id="change-color">Change Color: <input type='color' value="#ff0000" id="color-menu"></button>
+            <button id="eraser">Eraser</button>
+            <button id="clear">Clear</button>
+            <button id="grid-lines">Grid Lines</button>
+            <button id="change-size">Board Size: <input type="range" min="1" max="30" id="size-scale" value="16"><div id ='size-value'>16 x 16</div></button>
+            
+        </div>
         <div id="drawing-board">
         </div>
     </div>
