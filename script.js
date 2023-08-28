@@ -64,7 +64,6 @@ function buttonFunctions () {
     let eraserButton = document.getElementById('eraser');
     let clearButton = document.getElementById('clear');
     let gridLinesButton = document.getElementById('grid-lines');
-    let gridSizeButton = document.getElementById('change-size');
     let gridSizeMenu = document.getElementById('size-scale');
     let toggleEraser = false;
     paintGrid(colorMenu.value);

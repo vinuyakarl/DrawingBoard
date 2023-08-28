@@ -15,7 +15,6 @@ body {
 
 #drawing-container {
     display: flex;
-    border: 2px solid green;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
@@ -26,7 +25,7 @@ body {
 
 #drawing-board {
     display: grid;
-    border: 2px solid yellow;
+    border: 20px solid black;
     width: 660px;
     height: 660px;
 }
