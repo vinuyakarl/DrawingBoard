@@ -78,6 +78,13 @@ function buttonFunctions () {
         };
     });
 
+    // Makes the 'brush' into an eraser
+    eraserButton.addEventListener('click', () => {
+        toggleEraser = !toggleEraser;
+        eraserButton.style.backgroundColor = toggleEraser ? 'grey' : 'black';
+        colorValue = toggleEraser ? 'white' : colorMenu.value;
+        paintGrid(colorValue);
+    });
 
     // Clears the drawing board
     clearButton.addEventListener('click', () => {
@@ -86,16 +93,6 @@ function buttonFunctions () {
             box.style.backgroundColor = 'white';
         }
     });
-
-    // Makes the 'brush' into an eraser
-    eraserButton.addEventListener('click', () => {
-        let prev = colorMenu.value;
-        toggleEraser = !toggleEraser;
-        eraserButton.style.backgroundColor = toggleEraser ? 'grey' : 'black';
-        colorValue = toggleEraser ? 'white' : prev;
-        paintGrid(colorValue);
-    });
-
 
     // Toggles grid lines
     gridLinesButton.addEventListener('click', () => {
@@ -117,7 +114,6 @@ function buttonFunctions () {
         completeGrid(gridSizeMenu.value);
     })
 }
-
 
 function main() {
     completeGrid(16);
