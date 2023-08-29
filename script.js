@@ -17,6 +17,8 @@ function completeGrid(rows) {
     */
 
     let gridContainer = document.querySelector('#drawing-board');
+
+    // Loop until there is no more child (used when we are changing grid sizes)
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
@@ -33,7 +35,7 @@ function paintGrid(color) {
     */
 
     let drawingBoard = document.getElementById('drawing-board');
-    let isDragging = false;
+    let isDragging = false; // If mouse is drag clicked
 
     // Initial click
     drawingBoard.addEventListener('mousedown', event => {
@@ -71,9 +73,9 @@ function buttonFunctions () {
     changeColorButton.addEventListener('click', () => {
         colorMenu.click();
         document.addEventListener('mousemove', () => {
-        if (!toggleEraser) {
-            paintGrid(colorMenu.value);
-        };
+            if (!toggleEraser) {
+                paintGrid(colorMenu.value);
+            };
         });
     });
 
