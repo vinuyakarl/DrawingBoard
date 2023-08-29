@@ -1,6 +1,10 @@
 <h1>Pixel Drawing Board:</h1>
 
-Users can draw anything they want in pixel style.
+<h2>Users can draw anything they want in pixel style.</h2>
+
+<a href=https://vinuyakarl.github.io/DrawingBoard/>Live Version</a>
+
+
 
 <ul>Features: 
 <li>Change 'pencil' color</li>
