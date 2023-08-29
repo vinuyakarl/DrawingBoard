@@ -66,16 +66,15 @@ function buttonFunctions () {
     let gridLinesButton = document.getElementById('grid-lines');
     let gridSizeMenu = document.getElementById('size-scale');
     let toggleEraser = false;
-    paintGrid(colorMenu.value);
 
     // Allows user to change color
     changeColorButton.addEventListener('click', () => {
+        colorMenu.click();
+        document.addEventListener('mousemove', () => {
         if (!toggleEraser) {
-            colorMenu.click();
-            document.addEventListener('mousemove', () => {
-                paintGrid(colorMenu.value);
-                });
+            paintGrid(colorMenu.value);
         };
+        });
     });
 
     // Makes the 'brush' into an eraser
@@ -117,6 +116,7 @@ function buttonFunctions () {
 
 function main() {
     completeGrid(16);
+    paintGrid('red');
     buttonFunctions();
 }
 
